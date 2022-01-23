@@ -33,7 +33,7 @@ if [[ $EUID -ne 0 ]] || [ "${USERNAME}" = "root" ]; then
     exit 1
 fi
 
-sudo apt-get update && apt-get upgrade -y && apt-get install -y docker.io wget curl gparted
+sudo apt-get update && apt-get upgrade -y && apt-get install -y docker.io wget curl gparted git git-lfs build-essential cmake
 
 sudo usermod -aG docker $USERNAME
 newgrp docker
@@ -45,6 +45,8 @@ docker pull guitar24t/ck-ros:latest
 echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" | (sudo su -c 'EDITOR="tee -a" visudo')
 
 cd ~
+curl -sLO "https://github.com/frcteam195/dev_environment_setup/raw/main/team195.png"
+mv team195.png /var/lib/AccountsService/icons/${USERNAME}
 curl -sLo vscode.deb "${VSCODE}"
 sudo dpkg --install vscode.deb
 sudo apt-get install -f -y
