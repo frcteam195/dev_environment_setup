@@ -43,10 +43,10 @@ docker pull guitar24t/ck-ros:latest
 #Disable password entry for sudo
 echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" | (sudo su -c 'EDITOR="tee -a" visudo')
 
-cd ~
+cd /home/${USERNAME}
 curl -sLO "https://github.com/frcteam195/dev_environment_setup/raw/main/team195.png"
 mv team195.png /var/lib/AccountsService/icons/${USERNAME}
-curl -sLo vscode.deb "${VSCODE}"
+curl -L -o vscode.deb --header 'Referer: code.visualstudio.com' '${VSCODE}'
 sudo dpkg --install vscode.deb
 sudo apt-get install -f -y
 sudo dpkg --install vscode.deb
