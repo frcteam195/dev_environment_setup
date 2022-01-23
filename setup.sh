@@ -1,7 +1,7 @@
 #!/bin/bash
 
-VSCODE_x86_64=https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
-VSCODE_aarch64=https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-arm64
+VSCODE_x86_64='https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
+VSCODE_aarch64='https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-arm64'
 VSCODE=
 case "$(arch)" in
     "x86_64"|"amd64")
@@ -44,7 +44,7 @@ docker pull guitar24t/ck-ros:latest
 echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" | (sudo su -c 'EDITOR="tee -a" visudo')
 
 cd /home/${USERNAME}
-curl -sLO "https://github.com/frcteam195/dev_environment_setup/raw/main/team195.png"
+curl -sLO 'https://github.com/frcteam195/dev_environment_setup/raw/main/team195.png'
 mv team195.png /var/lib/AccountsService/icons/${USERNAME}
 curl -L -o vscode.deb --header 'Referer: code.visualstudio.com' '${VSCODE}'
 sudo dpkg --install vscode.deb
