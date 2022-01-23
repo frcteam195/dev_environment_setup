@@ -36,7 +36,6 @@ fi
 sudo apt-get update && apt-get upgrade -y && apt-get install -y docker.io wget curl gparted git git-lfs build-essential cmake
 
 sudo usermod -aG docker $USERNAME
-newgrp docker
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 docker pull guitar24t/ck-ros:latest
