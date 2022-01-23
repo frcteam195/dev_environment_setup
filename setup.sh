@@ -51,15 +51,15 @@ sudo dpkg --install vscode.deb
 sudo apt-get install -f -y
 sudo dpkg --install vscode.deb
 
-mkdir repos
-cd repos
 mkdir .ssh
 ssh-keygen -b 2048 -t rsa -f /home/${USERNAME}/.ssh/id_rsa -q -N "" 
-cat ~/.ssh/id_rsa.pub
-cd ..
+cat .ssh/id_rsa.pub
 sudo chown -R ${USERNAME}:${USERNAME} .
 echo "Please add this key to github named ${CKHOST} before continuing!"
 pause
+
+mkdir repos
+cd repos
 git clone https://github.com/frcteam195/ros_dev.git
 
 sudo reboot
